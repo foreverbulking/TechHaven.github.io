@@ -627,3 +627,91 @@ h2 + div.rounded-full {
 #users h2 + div {
   display: none !important;
 }
+
+/* Move the entire phone mockup down in the hero section */
+#overview .lg-w-1-2.relative,
+#overview .phone-container,
+#overview .hero-right-column {
+  margin-top: 80px !important; /* Move the entire phone container down */
+  position: relative;
+  z-index: 2;
+}
+
+/* Ensure the container has enough space */
+#overview.py-20 {
+  padding-bottom: 220px !important; /* Increase bottom padding to accommodate the moved phone */
+  overflow: visible !important;
+}
+
+/* For mobile screens, adjust positioning */
+@media (max-width: 768px) {
+  #overview .lg-w-1-2.relative,
+  #overview .phone-container,
+  #overview .hero-right-column {
+    margin-top: 60px !important; /* Slightly less on mobile */
+  }
+  
+  #overview.py-20 {
+    padding-bottom: 180px !important;
+  }
+}
+
+/* Ensure the next section doesn't overlap */
+#vision,
+#features,
+section.py-20:nth-child(2) {
+  position: relative;
+  z-index: 5;
+  margin-top: 60px;
+  background-color: #f9fafb; /* Light background to create separation */
+}
+
+/* Target the specific container that holds the phone */
+.hero-phone-container,
+.phone-mockup-container,
+#overview .lg-w-1-2:last-child {
+  transform: translateY(60px) !important;
+}
+
+/* Remove underlines from buttons in the hero section */
+#overview .px-8.py-3,
+#view-demo-btn,
+#explore-features-btn,
+a.px-8.py-3,
+.bg-gradient-to-r.rounded-full,
+.bg-white.rounded-full,
+a[href="#demos"],
+a[href="#features"] {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Target buttons by their text content */
+a:contains("View Demo"),
+a:contains("Explore Features") {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Target buttons by their appearance */
+.text-white.bg-gradient-to-r,
+.bg-white.text-gray-800,
+.rounded-full.px-8.py-3 {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Most direct approach - target all buttons in the hero section */
+#overview a.rounded-full {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Add better hover effects instead of underlines */
+#overview a.rounded-full:hover,
+.px-8.py-3:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08) !important;
+  text-decoration: none !important;
+}
