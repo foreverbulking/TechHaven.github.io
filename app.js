@@ -4,50 +4,49 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Anthony",
             skills: [
-                "",
-                "",
-                ""
+                "Dependency Injection Implementation",
+                "UI/UX Design Principles",
+                "Android Activity Lifecycle Management"
             ],
             image: "https://em-content.zobj.net/thumbs/240/apple/354/tiger-face_1f42f.png"
         },
         {
             name: "Mohammad",
             skills: [
-                " ",
-                "",
-                ""
+                "Database Schema Design",
+                "HSQLDB Implementation",
+                "Data Persistence Patterns"
             ],
             image: "https://em-content.zobj.net/thumbs/240/apple/354/cat-face_1f431.png"
         },
         {
             name: "Ranvir",
             skills: [
-                "",
-                "",
-                ""
+                "SOLID Principles Application",
+                "Software Architecture Design",
+                "Interface Segregation"
             ],
             image: "https://em-content.zobj.net/thumbs/240/apple/354/dog-face_1f436.png"
         },
         {
             name: "Neel",
-            skills: [
-                "",
-                "",
-                ""
+            skills : [
+                "Test-Driven Development",
+                "Unit & Integration Testing",
+                "Mock Object Implementation"
             ],
             image: "https://em-content.zobj.net/thumbs/240/apple/354/rabbit-face_1f430.png"
         },
         {
             name: "Nishan",
             skills: [
-                "",
-                "",
-                ""
+                "Business Logic Implementation",
+                "Exception Handling Patterns",
+                "Service Layer Design"
             ],
             image: "https://em-content.zobj.net/thumbs/240/apple/354/hamster_1f439.png"
         }
     ];
-
     // Render team members
     const teamMembersContainer = document.getElementById('team-members-container');
     
@@ -58,10 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
         let skillsHTML = '';
         member.skills.forEach(skill => {
             skillsHTML += `
-                <li class="flex items-start">
-                    <span class="inline-block h-2 w-2 bg-blue-500 rounded-full mt-1 mr-2"></span>
-                    ${skill}
-                </li>
+                <div class="flex items-center mb-1.5">
+                    <span class="text-blue-500 mr-2 text-lg inline-block">•</span>
+                    <p class="text-gray-700 text-base">${skill}</p>
+                </div>
             `;
         });
         
@@ -76,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         style="object-fit: contain; width: 100%; height: 100%;"
                     />
                 </div>
-                <h3 class="text-lg font-bold text-gray-700 mb-1 text-center">${member.name}</h3>
+                <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">${member.name}</h3>
                 <div class="w-full">
-                    <h4 class="text-xs font-semibold text-gray-600 mb-2">Skills:</h4>
-                    <ul class="text-xs text-gray-600 space-y-1">
+                    <h4 class="text-base font-semibold text-gray-800 mb-2">Skills learned:</h4>
+                    <div class="pl-2">
                         ${skillsHTML}
-                    </ul>
+                    </div>
                 </div>
             </div>
         `;
@@ -306,4 +305,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // Find the section that contains the team members heading
+    const teamSection = document.querySelector('#team-section');
+    if (teamSection) {
+        // Add negative margin to move it up
+        teamSection.classList.add('mt-[-2rem]');
+    }
 });
