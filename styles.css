@@ -663,7 +663,7 @@ section.py-20:nth-child(2) {
   position: relative;
   z-index: 5;
   margin-top: 60px;
-  background-color: #f9fafb; /* Light background to create separation */
+  background-color: white !important; /* Changed from #f9fafb to white */
 }
 
 /* Target the specific container that holds the phone */
@@ -714,4 +714,93 @@ a:contains("Explore Features") {
   transform: translateY(-2px);
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08) !important;
   text-decoration: none !important;
+}
+
+/* Set all sections to have the same background color */
+section {
+  background-color: white !important; /* Force white background on all sections */
+  background-image: none !important; /* Remove any gradient backgrounds */
+}
+
+/* Override specific section backgrounds */
+#overview.py-20.bg-gradient-to-b.from-blue-50.to-white,
+#team.py-20.px-4.bg-gray-50,
+#demos.py-20.bg-gray-50,
+#postmortem.py-20.bg-gradient-to-b.from-white.to-gray-50,
+#vision,
+#features,
+section.py-20:nth-child(2) {
+  background-color: white !important;
+  background-image: none !important;
+}
+
+/* Remove the specific styling in line 667-668 that sets a different background */
+#vision,
+#features,
+section.py-20:nth-child(2) {
+  position: relative;
+  z-index: 5;
+  margin-top: 60px;
+  background-color: white !important; /* Changed from #f9fafb to white */
+}
+
+/* Ensure no visual breaks between sections */
+section + section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+
+/* Fix for feature borders */
+.feature-card,
+.explore-feature,
+.feature-box {
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 0.75rem !important;
+  background-color: var(--color-card) !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+}
+
+.feature-card:hover,
+.explore-feature:hover,
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+  border-color: rgba(67, 97, 238, 0.3) !important;
+}
+
+/* Ensure feature images have proper borders */
+.feature-image-container,
+.feature-card img,
+.explore-feature img {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Feature content padding */
+.feature-content,
+.feature-card-content,
+.explore-feature-content {
+  padding: 1.5rem !important;
+}
+
+/* Feature title styling */
+.feature-title,
+.feature-card h3,
+.explore-feature h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+/* Feature description styling */
+.feature-description,
+.feature-card p,
+.explore-feature p {
+  color: var(--color-text-light);
+  line-height: 1.6;
 }
